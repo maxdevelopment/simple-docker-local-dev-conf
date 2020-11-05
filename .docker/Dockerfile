@@ -1,8 +1,8 @@
 FROM php:7.2-apache
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y git zip unzip libpq-dev \
-    && docker-php-ext-install pdo pdo_pgsql pdo_mysql mysqli \
+    && apt-get install -y git zip unzip libpq-dev libpng-dev libicu-dev \
+    && docker-php-ext-install pdo pdo_pgsql pdo_mysql mysqli bcmath gd intl \
     && a2enmod rewrite
 #install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
